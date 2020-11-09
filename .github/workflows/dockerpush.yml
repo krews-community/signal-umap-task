@@ -29,6 +29,7 @@ jobs:
 
       - name: Run tests
         run: |
+          apt-get install -y llvm
           scripts/test.sh
 
   # Push image to GitHub Package Registry.
