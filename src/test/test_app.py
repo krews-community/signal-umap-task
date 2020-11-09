@@ -11,26 +11,6 @@ from app.app import runumap
 def d(a, b):
     return math.sqrt(sum([ (a[i] - b[i]) * (a[i] - b[i]) for i in range(len(a)) ]))
 
-class TestInput:
-    
-    def __init__(self, jsonfiles, n_components = 2, n_neighbors = 3, cosine_similarity = False):
-        self.json_files = [ os.path.join(os.path.dirname(__file__), "resources", x) for x in jsonfiles ]
-        self.n_components = n_components
-        self.n_neighbors = n_neighbors
-        self.min_dist = 0.1
-        self.metric = 'correlation'
-        self.cosine_similarity = cosine_similarity
-
-    def __enter__(self):
-        self.output = tempfile.NamedTemporaryFile()
-        self.output_file = self.output.name
-        return self
-
-    def __exit__(self, exc_type, exc_value, tb):
-        if exc_type is not None:
-            raise
-        self.output.close()
-
 class TestApp(unittest.TestCase):
 
     def test_umap(self):
