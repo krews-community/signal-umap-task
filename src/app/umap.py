@@ -19,7 +19,6 @@ def readmatrix_j(jsonfiles):
 
 def signalumap_distance(jsonfiles, d, **kwargs):
     m, _ = d(readmatrix_j(jsonfiles))
-    print(m)
     del kwargs['metric']
     u = umap.UMAP(metric = 'precomputed', **kwargs)
     return [ [ float(xxx) for xxx in xx ] for xx in u.fit_transform(m) ]
