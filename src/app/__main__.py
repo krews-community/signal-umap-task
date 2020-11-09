@@ -14,6 +14,7 @@ def main():
     parser.add_argument("--min-dist", type = float, help = "UMAP hyperparameter: minimum distance between points. Default 0.1.", default = 0.1)
     parser.add_argument("--metric", type = str, help = "Distance metric for UMAP to use; defaults to 'correlation'.", default = "correlation")
     parser.add_argument("--n-components", type = int, help = "Number of dimensions in the UMAP space; defaults to 2.", default = 2)
+    parser.add_argument("--cosine-similarity", action = "store_true", default = False, help = "Pre-computes cosine similarity between pairs of entries as UMAP's distance metric.")
 
     runumap(parser.parse_args())
     return 0
