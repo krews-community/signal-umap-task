@@ -30,7 +30,10 @@ jobs:
       - name: Run tests
         run: |
           sudo apt-get remove python3
+          sudo apt-get install software-properties-common
+          sudo apt-get update
           sudo add-apt-repository ppa:deadsnakes/ppa
+          sudo apt-get update
           sudo apt-get install python3.8 python3.8-pip
           scripts/test.sh
 
