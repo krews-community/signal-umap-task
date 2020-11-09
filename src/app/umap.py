@@ -12,10 +12,12 @@ def readmatrix(j):
 def readmatrix_j(jsonfiles):
     if len(jsonfiles) == 0: return []
     m = readmatrix(jsonfiles[0])
+    l = [ 0, len(m[0]) ]
     for i in range(1, len(jsonfiles)):
         n = readmatrix(jsonfiles[i])
         m = [ m[i] + n[i] for i in range(len(n)) ]
-    return m
+        l.append(l[-1] + len(n[0]))
+    return m, l
 
 def signalumap_distance(jsonfiles, d, **kwargs):
     m, _ = d(readmatrix_j(jsonfiles))
@@ -36,4 +38,4 @@ def signalumap(jsonfiles, **kwargs):
         A coorinate matrix, where each row corresponds to an element mapped into the lower dimensional space.
     """
     u = umap.UMAP(**kwargs)
-    return [ [ float(xxx) for xxx in xx ] for xx in u.fit_transform(readmatrix_j(jsonfiles)) ]
+    return [ [ float(xxx) for xxx in xx ] for xx in u.fit_transform(readmatrix_j(jsonfiles)[0]) ]
