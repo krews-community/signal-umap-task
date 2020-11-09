@@ -4,7 +4,7 @@ import os
 import tempfile
 import unittest
 import math
-import ujson
+import json
 
 from app.app import runumap
 
@@ -21,7 +21,7 @@ class TestApp(unittest.TestCase):
                 )
             )
             with open(os.path.join(dd, "test"), 'r') as f:
-                j = ujson.load(f)
+                j = json.load(f)
             self.assertLess(d(j[0], j[1]), d(j[0], j[4]))
             self.assertLess(d(j[0], j[2]), d(j[0], j[5]))
             self.assertLess(d(j[5], j[6]), d(j[0], j[3]))
@@ -34,7 +34,7 @@ class TestApp(unittest.TestCase):
                 )
             )
             with open(os.path.join(dd, "test"), 'r') as f:
-                j = ujson.load(f)
+                j = json.load(f)
             self.assertLess(d(j[0], j[1]), d(j[0], j[4]))
             self.assertLess(d(j[0], j[2]), d(j[0], j[5]))
             self.assertLess(d(j[5], j[6]), d(j[0], j[3]))
@@ -47,7 +47,7 @@ class TestApp(unittest.TestCase):
                 )
             )
             with open(os.path.join(dd, "test"), 'r') as f:
-                j = ujson.load(f)
+                j = json.load(f)
             self.assertLess(d(j[0], j[1]), d(j[0], j[6]))
             self.assertLess(d(j[0], j[2]), d(j[0], j[5]))
             self.assertLess(d(j[5], j[6]), d(j[0], j[3]))
