@@ -6,8 +6,6 @@ import unittest
 import math
 import json
 
-from app.app import runumap
-
 def d(a, b):
     return math.sqrt(sum([ (a[i] - b[i]) * (a[i] - b[i]) for i in range(len(a)) ]))
 
