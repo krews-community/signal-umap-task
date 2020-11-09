@@ -29,7 +29,7 @@ jobs:
 
       - name: Run tests
         run: |
-          sudo apt-get install -y llvm-10
+          sudo apt-get install -y libllvm-10-ocaml-dev libllvm10 llvm-10 llvm-10-dev llvm-10-doc llvm-10-examples llvm-10-runtime clang-10 clang-tools-10 clang-10-doc libclang-common-10-dev libclang-10-dev libclang1-10 clang-format-10 python-clang-10 libfuzzer-10-dev lldb-10 lld-10 libc++-10-dev libc++abi-10-dev libomp-10-dev
           scripts/test.sh
 
   # Push image to GitHub Package Registry.
