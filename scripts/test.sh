@@ -1,9 +1,7 @@
 #!/bin/bash
 set -e
 
-python3 -m pip install --upgrade setuptools wheel
-python3 -m pip install --user numpy
-python3 -m pip install --user ujson umap-learn sklearn
+docker build -t umap-test .
 
 # cd to project root directory
 cd "$(dirname "$(dirname "$0")")"
